@@ -19,25 +19,25 @@
 
                 if (Double.TryParse(input, out score))
                 {
-                    if (score > 70 && score < 100)
+                    if (score > 70.00 && score < 100.00)
                     {
-                        passingScore++;
+                        passingScore = passingScore + 1.00;
 
                     }
-                    else if (score > 100)
+                    else if (score > 100.00)
                     {
                         Console.WriteLine("Invalid score. Please try again.");
                     }
-                    else if (score < 70)
-                    {
-                        failingScore++;
+                    else if (score < 70.00)
+                    { 
+                        failingScore = failingScore + 1.00;
                     }
                 }
                 else if (input.ToLower() == "exit")
                 {
                     i = 1;
-                    percentageOfPassingScores = passingScore / (passingScore + failingScore);
-                    Console.WriteLine(percentageOfPassingScores);
+                    percentageOfPassingScores = passingScore / (passingScore + failingScore) * 100;
+                    percentageOfPassingScores = Math.Round(percentageOfPassingScores, 2);
                     Console.WriteLine(percentageOfPassingScores + "% of the scores are passing");
                 }            
             }       
